@@ -23,6 +23,7 @@ SOFTWARE.
 
 import logging
 import urllib.parse
+import gdown
 
 from alive_progress import alive_bar
 import requests
@@ -60,4 +61,4 @@ def _download(docid, destination):
 def download(public_url, destination):
     o = urllib.parse.urlparse(public_url)
     q = urllib.parse.parse_qs(o.query)
-    _download(q['id'], destination)
+    gdown.download(public_url, destination)
